@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+<script>
+    let Rat = function (name,w,speed,status) {
+        this.name = name;
+        this.w = w;
+        this.speed = speed;
+        this.status = status;
+        this.isLive = function () {
+            return this.status;
+        };
+        this.whisper = function () {
+            return "Chit...chit...";
+        }
+    };
+    let Cat = function (name,weight,maxSpeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxSpeed = maxSpeed;
+        this.shout = function () {
+            return "meo...meo...";
+        };
+        this.checkRatStatus = function (RatStatus) {
+            if (RatStatus === true) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        this.catchRats = function (RatSpeed) {
+            if (this.maxSpeed > RatSpeed) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        this.eatRats = function (RatWeight,RatStatus,RatSpeed) {
+            if (this.catchRats(RatSpeed) === true && this.checkRatStatus(RatStatus)) {
+                this.weight = this.weight + RatWeight;
+                return this.weight;
+            }
+            else if (this.checkRatStatus(RatStatus) === false) {
+                return "Mouse is dead!";
+            }
+            else if (this.catchRats(RatSpeed) === false) {
+                return "Too slow!";
+            }
+        }
+    };
+    let rat = new Rat("Jerry", 5, 30, true);
+    console.log("this rat'name is: " + rat.name);
+    console.log("this rat'weight is: " + rat.w);
+    console.log("this rat'speed is: " + rat.speed);
+    console.log("this rat'status is: " + rat.status);
+
+    let cat = new Cat("Tom", 15, 20);
+    console.log("Tom's weight is: " + cat.weight);
+    console.log("Tom's max speed is: " + cat.maxSpeed);
+    console.log(cat.shout());
+    console.log(rat.whisper());
+    console.log("is Jerry live? " + cat.checkRatStatus(rat.status));
+    console.log("Could Tom catch Jerry? " + cat.catchRats(rat.speed));
+    console.log("Jerry said : " + '"' + cat.eatRats(rat.w,rat.status,rat.speed) + '"');
+
+</script>
+</body>
+</html>
