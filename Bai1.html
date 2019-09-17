@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Pharmacist = function (name, age, address) {
+        this.name = name;
+        this.address = address;
+        this.age = age;
+
+        this.getAddress = function () {
+            return this.address
+        };
+        this.setAddress = function () {
+            this.address = address;
+        }
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (name) {
+            this.name = name;
+        };
+        this.getAge = function () {
+            return this.age;
+        };
+        this.setAge = function (age) {
+            this.age = age;
+        }
+    };
+    let pharmacist1 = new Pharmacist('Tram Anh', 25, 'Ha noi');
+    let pName1 = pharmacist1.getName();
+    alert('Ten duoc si:' + pName1);
+    let pAge1 = pharmacist1.getAge();
+    alert('so tuoi :' + pAge1);
+    let pAdd1 = pharmacist1.getAddress();
+    alert('dia chi : ' + pAdd1);
+
+    
+</script>
+
+</body>
+</html>
